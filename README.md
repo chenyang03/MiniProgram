@@ -1,6 +1,4 @@
 # MiniProgram
-WeChat Mini Program
-
 
 
 ## 目前完成的功能：
@@ -151,3 +149,5 @@ WeChat Mini Program
 
 
 
+=======
+>>>>>>> 13cb324d9fdd4a102ca360f85af2ea15241049c2
