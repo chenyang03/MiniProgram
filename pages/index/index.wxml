@@ -1,0 +1,3 @@
+<map scale="11" altitude="{{latitude}}" longitude="{{longitude}}" style="width: 375px; height: 500px;" covers="{{covers}}" circles="{{circles}}" markers="{{markers}}"/>
+<button type="primary" bindtap="checkIn">Check In</button>
+
