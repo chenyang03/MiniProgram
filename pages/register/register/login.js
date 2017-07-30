@@ -70,7 +70,7 @@ Page({
           console.log(res.data);
           if(registered){
             wx.switchTab({
-              url: '../index/index'
+              url: '../map/map'
             });
           }else{
             console("服务端注册失败");
@@ -81,8 +81,8 @@ Page({
         } 
         });
     
-   wx.reLaunch({
-     url: '../index/index',
+   wx.redirectTo({
+     url: '../map/map',
    })
     console.log(event.detail.value);
   },

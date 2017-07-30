@@ -6,24 +6,26 @@ Page({
    * 页面的初始数据
    */
   data: {
+    windowWidth: '',
+    windowHeight: '',
     markers: [{
       latitude: 39.90403,
       longitude: 116.407526,
       iconPath: '../images/location.jpg',
-    },{
+    }, {
       latitude: 39.95403,
       longitude: 116.507526,
       iconPath: '../images/location.jpg',
-      },{
-        latitude: 39.90403,
-        longitude: 116.487526,
-        iconPath: '../images/location.jpg',
+    }, {
+      latitude: 39.90403,
+      longitude: 116.487526,
+      iconPath: '../images/location.jpg',
     }, {
       latitude: 39.93403,
       longitude: 116.357526,
       iconPath: '../images/location.jpg',
     }],
-      
+
     // circles: [{
     //   latitude: 39.90403,
     //   longitude: 116.407526,
@@ -33,7 +35,7 @@ Page({
     //   strokeWidth: 1
     // }],
     longitude: '',
-    latitude: '' 
+    latitude: ''
   },
 
   /**
@@ -41,6 +43,14 @@ Page({
    */
   onLoad: function (options) {
     var that = this;
+    console.log("获取openid" + app.globalData.openid);
+    this.setData({
+      windowWidth: app.globalData.windowWidth,
+      windowHeight: app.globalData.windowHeight
+    });
+    console.log('当前宽度' + this.data.windowWidth);
+    console.log('当前高度' + this.data.windowHeight);
+
     wx.getLocation({
       type: 'wgs84', //返回可以用于wx.openLocation的经纬度
       success: function (res) {
@@ -52,17 +62,17 @@ Page({
 
         /*TODO */
         // var coordinates = utils.queryProximity();
-        
+
         var coordinates = [{
-          latitude: res.latitude+0.1,
-          longitude: res.longitude+0.1
-        },{
-          latitude: res.latitude-0.1,
-          longitude: res.longitude+0.1
-        },{
+          latitude: res.latitude + 0.1,
+          longitude: res.longitude + 0.1
+        }, {
+          latitude: res.latitude - 0.1,
+          longitude: res.longitude + 0.1
+        }, {
           latitude: res.latitude - 0.1,
           longitude: res.longitude - 0.1
-        },{
+        }, {
           latitude: res.latitude + 0.1,
           longitude: res.longitude - 0.1
         }];
@@ -73,16 +83,16 @@ Page({
         var tempMarkers = [{
           latitude: res.latitude,
           longitude: res.longitude,
-          iconPath: '../images/jiang.jpg'
+          iconPath: '../images/mapicon.jpg'
         }];
 
-        for(var i = 0; i < coordinates.length; i++){
+        for (var i = 0; i < coordinates.length; i++) {
           var tempLatitude = coordinates[i].latitude;
           var tempLongitude = coordinates[i].longitude;
           tempMarkers.push({
             latitude: tempLatitude,
             longitude: tempLongitude,
-            iconPath: '../images/song.jpg'
+            iconPath: '../images/proximity.jpg'
           });
         }
 
@@ -102,21 +112,21 @@ Page({
         //   scale: 28
         // })
       }
-    })
+    });
   },
 
-  checkIn: function(){
+  checkIn: function () {
     //TODO
     // var success = utils.checkPosition();
     var success = true;
-    if(success){
+    if (success) {
       console.log("Succesfully check!");
       wx.showModal({
         title: '+1s',
         content: '成功续命，是否继续？',
         success: function (res) {
           if (res.confirm) {
-            
+
           } else if (res.cancel) {
             wx.switchTab({
               url: '../weather/weather',
@@ -124,7 +134,7 @@ Page({
           }
         }
       })
-    }else{
+    } else {
       console.log("Fail to check in");
     }
   },
@@ -135,48 +145,48 @@ Page({
    * 生命周期函数--监听页面初次渲染完成
    */
   onReady: function () {
-    
+
   },
 
   /**
    * 生命周期函数--监听页面显示
    */
   onShow: function () {
-    
+
   },
 
   /**
    * 生命周期函数--监听页面隐藏
    */
   onHide: function () {
-    
+
   },
 
   /**
    * 生命周期函数--监听页面卸载
    */
   onUnload: function () {
-    
+
   },
 
   /**
    * 页面相关事件处理函数--监听用户下拉动作
    */
   onPullDownRefresh: function () {
-    
+
   },
 
   /**
    * 页面上拉触底事件的处理函数
    */
   onReachBottom: function () {
-    
+
   },
 
   /**
    * 用户点击右上角分享
    */
   onShareAppMessage: function () {
-    
+
   }
 })

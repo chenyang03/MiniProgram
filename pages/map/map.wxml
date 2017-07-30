@@ -1,0 +1,4 @@
+<view style="width: {{windowWidth}}px; height:{{windowHeight}}px;">
+<map style="width: 100%; height: 70%" scale="11" altitude="{{latitude}}" longitude="{{longitude}}"  covers="{{covers}}" circles="{{circles}}" markers="{{markers}}"/>
+<button type="primary" bindtap="checkIn">Check In</button>
+</view>
