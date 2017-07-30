@@ -55,15 +55,18 @@ Page({
         duration: 2000
       });
 
-      //完成注册
+      
       utils.register({
-        user: this.user,
-        phone: this.phone
+        rawData: getApp().globalData.rawData,
+        openid: getApp().globalData.openid,
+        user: this.data.user,
+        phone: this.data.phone
       });
 
+      console.log('跳转到地图界面');
       //跳转到地图页面
       wx.switchTab({
-        url: '../index/index',
+        url: '../map/map',
       });
     }
   },

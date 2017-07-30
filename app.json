@@ -1,6 +1,6 @@
 {
   "pages": [
-    "pages/index/index", 
+    "pages/map/map",
     "pages/register/register",
     "pages/weather/weather"
   ],
@@ -21,7 +21,7 @@
     "list": [
       {
         "iconPath": "pages/images/mapicon.jpg",
-        "pagePath": "pages/index/index",
+        "pagePath": "pages/map/map",
         "text": "地图"
       },
       {

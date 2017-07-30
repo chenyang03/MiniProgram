@@ -23,7 +23,7 @@
 
 #### 1.发送用户信息，换取openid
 
-##### 相关函数：`keepSession()`
+##### 相关函数：`getOpenId()`
 
 ##### url: '待定'(由青鸟林填写)
 
@@ -46,21 +46,18 @@
 
 ##### 接收数据格式：
 
-成功：
-
 ```json
 {
+  registered: true,
   openid: 'asdfasf'
 }
+
 ```
 
-失败：
 
-```json
-{
-  errorMsg: '太丑了，无法使用我们的小程序'
-}
-```
+
+
+
 
 
 
@@ -113,7 +110,26 @@
 
 ##### method: 'POST‘
 
-##### 发送数据格式： 需要大家讨论
+##### 发送数据格式： 
+
+```json
+{
+  openid: "haasdfasf",
+  latitude: 10,
+  longitude:1000
+}
+```
+
+##### 接收数据格式：
+
+```json
+{
+  status: "ERROR"
+  message: "asdf"
+}
+```
+
+
 
 
 
@@ -132,8 +148,8 @@
 ```son
 {
   openid: 'asdfasdfsad',
-  user: '老板最帅'，
-  phone: '15202345235'
+  username: '老板最帅'，
+  Tel: '15202345235'
 }
 ```
 
@@ -141,13 +157,9 @@
 
 ```json
 {
-  success: true
+  status: true
+  message: 'register error'(option)
 }
 ```
 
 
-
-
-
-=======
->>>>>>> 13cb324d9fdd4a102ca360f85af2ea15241049c2
